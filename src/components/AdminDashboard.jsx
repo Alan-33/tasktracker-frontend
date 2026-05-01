@@ -14,7 +14,7 @@ function AdminDashboard() {
     const [tasks, setTasks] = useState([]);
     const [dashboardCounts, setDashboardCounts] = useState({ Total: 0, Pending: 0, Completed: 0, Overdue: 0 });
 
-    const API_URL = 'http://localhost:5000/api';
+    const API_URL = 'https://tasktracker-backend-production.up.railway.app/api';
 
     useEffect(() => {
         fetchData();

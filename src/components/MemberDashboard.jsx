@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function MemberDashboard() {
     const [tasks, setTasks] = useState([]);
     const user = JSON.parse(localStorage.getItem('user'));
-    const API_URL = 'http://localhost:5000/api';
+    const API_URL = 'https://tasktracker-backend-production.up.railway.app/api';
 
     useEffect(() => {
         if (user) fetchMyTasks();
