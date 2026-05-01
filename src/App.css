@@ -1,0 +1,58 @@
+/* 1. COMPLETELY REMOVE WHITE SPACE */
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important; /* Forces 100% viewport width */
+  min-height: 100vh !important;
+  background-color: #0a0d17 !important; /* Matches image_2f18fa.png */
+  overflow-x: hidden;
+}
+
+/* 2. MAKE GRID HEADERS VISIBLE (ID, DESCRIPTION, etc.) */
+/* We use a high-contrast white background with black text for the header */
+.table-light {
+  background-color: #f8f9fa !important; 
+}
+
+.table-light th {
+  color: #000000 !important; /* Pure black text for maximum visibility */
+  font-weight: 800 !important;
+  text-align: center;
+  padding: 15px !important;
+  border: none !important;
+  text-transform: uppercase;
+}
+
+/* 3. CLEAN UP UNBOLDED LETTERS (High Contrast) */
+/* This makes sure unbolded text is bright white so you can see it */
+td, p, span, label {
+  color: #ffffff !important; 
+  font-weight: 500 !important;
+}
+
+/* 4. TABLE ROW STYLING */
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  background-color: #161925 !important; /* Darker card color for rows */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 12px !important;
+}
+
+/* 5. FORCE BOOTSTRAP TO BE EDGE-TO-EDGE */
+.container-fluid {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+/* 6. CLEAN CARDS */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background-color: #161925 !important;
+  border-radius: 12px !important;
+}
