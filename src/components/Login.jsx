@@ -8,11 +8,14 @@ function Login() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    // The live Railway backend URL
+    const API_URL = 'https://tasktracker-backend-production.up.railway.app/api';
+
     const handleLogin = async (e) => {
         e.preventDefault(); 
         try {
-            // Send login request to your Node API
-            const response = await axios.post('http://localhost:5000/api/login', {
+            // UPDATED: Points to the live Railway API instead of localhost
+            const response = await axios.post(`${API_URL}/login`, {
                 email,
                 password
             });
@@ -23,8 +26,7 @@ function Login() {
                 // Save user info to local storage
                 localStorage.setItem('user', JSON.stringify(user));
 
-                // FIXED: Match "Role" (uppercase) to your PostgreSQL column name 
-                // and use .toLowerCase() for safety.
+                // Matches "Role" (uppercase) to your PostgreSQL column name
                 if (user.Role && user.Role.toLowerCase() === 'admin') {
                     navigate('/admin');
                 } else {
@@ -32,6 +34,7 @@ function Login() {
                 }
             }
         } catch (err) {
+            // Error handling for invalid credentials or connection issues
             setError('Invalid email or password');
         }
     };

@@ -14,7 +14,7 @@ function AdminDashboard() {
     const [tasks, setTasks] = useState([]);
     const [dashboardCounts, setDashboardCounts] = useState({ Total: 0, Pending: 0, Completed: 0, Overdue: 0 });
 
-    const API_URL = 'https://tasktracker-backend-production.up.railway.app/api';
+    const API_URL = 'https://tasktracker-backend-production.up.railway.app/api';;
 
     useEffect(() => {
         fetchData();
@@ -37,19 +37,17 @@ function AdminDashboard() {
         }
     };
 
-    const handleCreateProject = async (e) => {
-        e.preventDefault();
+    const handleCreateProject = async () => {
         try {
-            const response = await axios.post(`${API_URL}/projects`, { projectName: newProjectName });
-            if (response.data.success) {
-                setNewProjectName('');
-                fetchData();
-                alert("Project Created Successfully!");
+        // MUST use localhost:5000 for your demo video
+            const res = await axios.post('http://localhost:5000/api/projects', { projectName });
+            if (res.data.success) {
+                alert("Project Created!");
             }
         } catch (err) {
-            console.error("Project Error:", err);
+            console.error("Create Error:", err);
         }
-    };
+    };  
 
     const handleCreateTask = async (e) => {
         e.preventDefault();
